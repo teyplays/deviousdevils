@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DialogueEditor;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rbody;
 
+    public NPCConversation myConvo;
+
     // Pause all input besides escape
     public bool pauseInput = false;
 
@@ -31,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
+        ConversationManager.Instance.StartConversation(myConvo);
     }
 
     // Update is called once per frame
