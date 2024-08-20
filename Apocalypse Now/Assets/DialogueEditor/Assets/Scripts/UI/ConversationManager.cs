@@ -81,6 +81,8 @@ namespace DialogueEditor
         private List<UIConversationButton> m_uiOptions;
         private int m_currentSelectedIndex;
 
+        private GameObject player;
+
 
         //--------------------------------------
         // Awake, Start, Destroy, Update
@@ -100,6 +102,7 @@ namespace DialogueEditor
             NpcIcon.sprite = BlankSprite;
             DialogueText.text = "";
             TurnOffUI();
+            player = GameObject.Find("Player");
         }
 
         private void OnDestroy()
@@ -145,6 +148,7 @@ namespace DialogueEditor
 
         public void StartConversation(NPCConversation conversation)
         {
+            player.GetComponent<PlayerMovement>().pauseInput = true;
             m_conversation = conversation.Deserialize();
             if (OnConversationStarted != null)
                 OnConversationStarted.Invoke();
@@ -156,6 +160,7 @@ namespace DialogueEditor
 
         public void EndConversation()
         {
+            player.GetComponent<PlayerMovement>().pauseInput = false;
             SetState(eState.TransitioningDialogueOff);
 
             if (OnConversationEnded != null)
@@ -360,7 +365,7 @@ namespace DialogueEditor
                 }
             }
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
             {
                 m_scrollIndex = m_targetScrollTextCount - 1;
             }
@@ -395,7 +400,7 @@ namespace DialogueEditor
                     }
                 }
             }
-            else if (Input.GetMouseButtonDown(0))
+            else if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
             {
                 if (m_currentSpeech.ConnectionType == Connection.eConnectionType.Speech || m_currentSpeech.ConnectionType == Connection.eConnectionType.None)
                 {

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DialogueEditor;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -25,8 +24,6 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rbody;
 
-    public NPCConversation myConvo;
-
     // Pause all input besides escape
     public bool pauseInput = false;
 
@@ -34,25 +31,27 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
-        ConversationManager.Instance.StartConversation(myConvo);
     }
 
     // Update is called once per frame
     void Update()
     {
-        acceleration.x = ((Input.GetKey(left) ? -1 : 0) + (Input.GetKey(right) ? 1 : 0)) * accelerationCoefficient;
-        acceleration.y = ((Input.GetKey(down) ? -1 : 0) + (Input.GetKey(up) ? 1 : 0)) * accelerationCoefficient;
+        if (!pauseInput)
+        {
+            acceleration.x = ((Input.GetKey(left) ? -1 : 0) + (Input.GetKey(right) ? 1 : 0)) * accelerationCoefficient;
+            acceleration.y = ((Input.GetKey(down) ? -1 : 0) + (Input.GetKey(up) ? 1 : 0)) * accelerationCoefficient;
 
-        //Calculate velocity
-        velocity.x = VelocityCalc(acceleration.x, velocity.x, speedModifier);
-        velocity.y = VelocityCalc(acceleration.y, velocity.y, speedModifier);
+            //Calculate velocity
+            velocity.x = VelocityCalc(acceleration.x, velocity.x, speedModifier);
+            velocity.y = VelocityCalc(acceleration.y, velocity.y, speedModifier);
 
-        //Predict new position
-        Vector2 currentPos = rbody.position;
-        Vector2 newPos = currentPos + velocity * Time.fixedDeltaTime;
+            //Predict new position
+            Vector2 currentPos = rbody.position;
+            Vector2 newPos = currentPos + velocity * Time.fixedDeltaTime;
 
-        //Move to new position
-        rbody.MovePosition(newPos);
+            //Move to new position
+            rbody.MovePosition(newPos);
+        }
     }
 
     private float VelocityCalc(float a, float v, float modifier = 1f)
