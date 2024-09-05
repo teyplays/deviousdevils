@@ -21,16 +21,20 @@ public class PlayerMovement : MonoBehaviour
     //Physics info
     private Vector2 velocity, acceleration;
 
-
     Rigidbody2D rbody;
 
     // Pause all input besides escape
     public bool pauseInput = false;
 
+    Animator animator;
+    SpriteRenderer spriteRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -52,6 +56,17 @@ public class PlayerMovement : MonoBehaviour
             //Move to new position
             rbody.MovePosition(newPos);
         }
+        
+        // Set animation to walking if moving
+        if (acceleration.x != 0 || acceleration.y != 0){
+            animator.SetBool("isMoving", true);
+        }else{
+            animator.SetBool("isMoving", false);
+        }
+
+        // Flip sprite for movement
+        if (acceleration.x > 0) spriteRenderer.flipX = false;
+        if (acceleration.x < 0)  spriteRenderer.flipX = true;
     }
 
     private float VelocityCalc(float a, float v, float modifier = 1f)
