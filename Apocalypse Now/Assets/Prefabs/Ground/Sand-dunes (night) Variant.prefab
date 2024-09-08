@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6504715460248974700
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 767322969980085991, guid: b70bc67e0517b45c7b1db38f630812d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -30.837444
+      objectReference: {fileID: 0}
+    - target: {fileID: 767322969980085991, guid: b70bc67e0517b45c7b1db38f630812d8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -23.498093
+      objectReference: {fileID: 0}
+    - target: {fileID: 767322969980085991, guid: b70bc67e0517b45c7b1db38f630812d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 767322969980085991, guid: b70bc67e0517b45c7b1db38f630812d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 767322969980085991, guid: b70bc67e0517b45c7b1db38f630812d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 767322969980085991, guid: b70bc67e0517b45c7b1db38f630812d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 767322969980085991, guid: b70bc67e0517b45c7b1db38f630812d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 767322969980085991, guid: b70bc67e0517b45c7b1db38f630812d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 767322969980085991, guid: b70bc67e0517b45c7b1db38f630812d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 767322969980085991, guid: b70bc67e0517b45c7b1db38f630812d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290708942193803216, guid: b70bc67e0517b45c7b1db38f630812d8, type: 3}
+      propertyPath: m_Name
+      value: Sand-dunes (night) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2358474087852924759, guid: b70bc67e0517b45c7b1db38f630812d8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 71fd38d4be9f7444394f19e999e4b841, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b70bc67e0517b45c7b1db38f630812d8, type: 3}
