@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         }
         
         // Set animation to walking if moving
-        if (acceleration.x != 0 || acceleration.y != 0){
+        if ((acceleration.x != 0 || acceleration.y != 0) && !pauseInput){
             animator.SetBool("isMoving", true);
         }else{
             animator.SetBool("isMoving", false);
@@ -107,4 +107,11 @@ public class PlayerMovement : MonoBehaviour
         return velocity;
     }
 
+    public void CutscenePause(){
+        pauseInput = true;
+    }
+
+    public void CutsceneResume(){
+        pauseInput = false;
+    }
 }
